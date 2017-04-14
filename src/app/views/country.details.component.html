@@ -1,0 +1,70 @@
+<div *ngIf="countriesDetails">
+    <table style="width:40%">
+        <tr>
+            <td>
+            Country Name: 
+            </td>
+            <td>
+                {{countriesDetails.countryName}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+            Population: 
+             </td>
+            <td>
+                {{countriesDetails.population | number : fractionSize}}
+            </td> 
+        </tr>
+        <tr>
+            <td>
+            Area (Sqr Km): 
+             </td>
+            <td>
+                {{countriesDetails.areaInSqKm | number : fractionSize }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+            Capital: 
+             </td>
+            <td>
+                {{countriesDetails.capital}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+            Country Flag:     
+            </td>
+            <td><!--Country Flag-->
+                <img src="http://www.geonames.org/flags/x/{{countriesDetails.countryCode.toLowerCase()}}.gif" height="20px" width="20px"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            Country Map
+            </td>
+            <td><!--Country Map-->
+                <img src="http://www.geonames.org/img/country/250/{{countriesDetails.countryCode.toUpperCase()}}.png" height="20px" width="20px"/>
+            </td>
+        </tr>
+    </table>
+        <table style="width:40%">
+        <tr *ngIf="countryNeighbours.length > 0">
+            <td>
+                Neighbouring Countries: <br />
+                <ol>
+                    <li *ngFor="let neighbour of countryNeighbours">
+                        <!--<a *ngIf="isLoading == false" (click) = "navigate(nCountry.countryCode)" [routerLink]="['/countries', nCountry.countryCode]">{{nCountry.name}}</a>-->
+                        {{ neighbour.name }}
+                    </li>
+                </ol>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    <a  [routerLink]="['/']">Home</a>
+    <a  [routerLink]="['/countries']">Back</a>
+</div>

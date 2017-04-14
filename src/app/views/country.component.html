@@ -1,0 +1,47 @@
+<table class="responstable">
+    <thead>
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                Country Code
+            </td>
+            <td>
+                Capital
+            </td>
+            <td>
+                Area (sq km)
+            </td>
+            <td>
+                Population
+            </td>
+            <td>
+                Continent
+            </td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let country of countriesList.geonames" (click)="onSelect(country)" >
+            <td>
+                {{country.countryName}}
+            </td>
+            <td>
+                {{country.countryCode}}
+            </td>
+            <td>
+                {{country.capital}}
+            </td>
+            <td>
+                {{country.areaInSqKm}}
+            </td>
+            <td>
+                {{country.population}}
+            </td>
+            <td>
+                {{country.continentName}}
+            </td>
+        </tr>
+    </tbody>
+</table>
